@@ -34,10 +34,9 @@ void process_image_callback(const sensor_msgs::Image img)
 
     for (int i = 0; i < img.height * img.step; i++) {
 
-        //res.msg_feedback = "image[i]:" + std::to_string(image.data[i]);
-    	//ROS_INFO_STREAM(res.msg_feedback);
-            ROS_INFO_STREAM("Got inside loop");
+        ROS_INFO_STREAM("Got inside loop, img.data[i]" << std::to_string(img.data[i]));
 
+	// find white pixel
         if (img.data[i] == white_pixel) {
 
 		ROS_INFO_STREAM("Got inside if");
@@ -62,7 +61,7 @@ void process_image_callback(const sensor_msgs::Image img)
 	    drive_robot(0.0,0.0); //stop robot
 
 	} // end if/else
-	  
+ ROS_INFO_STREAM("GOT THROUGH LOOP");
     } //end for
 } // end process_image_callback
 
