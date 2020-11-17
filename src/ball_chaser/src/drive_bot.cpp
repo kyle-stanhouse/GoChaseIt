@@ -16,7 +16,7 @@ bool handle_drive_request(ball_chaser::DriveToTarget::Request& req,
 
 	//std_msgs::Float64 linear_x, angular_z;
 
-   	 motor_command_publisher.publish(req);
+   	// motor_command_publisher.publish(req);
 
 
     // TODO: Delete the loop, move the code to the inside of the callback function and make the necessary changes to publish the requested velocities instead of constant values
