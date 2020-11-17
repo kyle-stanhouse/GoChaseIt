@@ -41,7 +41,7 @@
 /home/parallels/workspace/catkin_ws/build/ball_chaser/CMakeFiles/rebuild_cache.dir
 /home/parallels/workspace/catkin_ws/build/ball_chaser/CMakeFiles/edit_cache.dir
 /home/parallels/workspace/catkin_ws/build/ball_chaser/CMakeFiles/test.dir
-/home/parallels/workspace/catkin_ws/build/ball_chaser/CMakeFiles/ball_chaser.dir
+/home/parallels/workspace/catkin_ws/build/ball_chaser/CMakeFiles/drive_bot.dir
 /home/parallels/workspace/catkin_ws/build/ball_chaser/CMakeFiles/ball_chaser_gennodejs.dir
 /home/parallels/workspace/catkin_ws/build/ball_chaser/CMakeFiles/std_msgs_generate_messages_py.dir
 /home/parallels/workspace/catkin_ws/build/ball_chaser/CMakeFiles/ball_chaser_genpy.dir

@@ -317,17 +317,17 @@ _catkin_empty_exported_target/fast:
 .PHONY : _catkin_empty_exported_target/fast
 
 #=============================================================================
-# Target rules for targets named ball_chaser
+# Target rules for targets named drive_bot
 
 # Build rule for target.
-ball_chaser: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ball_chaser
-.PHONY : ball_chaser
+drive_bot: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 drive_bot
+.PHONY : drive_bot
 
 # fast build rule for target.
-ball_chaser/fast:
-	$(MAKE) $(MAKESILENT) -f ball_chaser/CMakeFiles/ball_chaser.dir/build.make ball_chaser/CMakeFiles/ball_chaser.dir/build
-.PHONY : ball_chaser/fast
+drive_bot/fast:
+	$(MAKE) $(MAKESILENT) -f ball_chaser/CMakeFiles/drive_bot.dir/build.make ball_chaser/CMakeFiles/drive_bot.dir/build
+.PHONY : drive_bot/fast
 
 #=============================================================================
 # Target rules for targets named ball_chaser_gennodejs
@@ -739,7 +739,7 @@ help:
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... tests"
-	@echo "... ball_chaser"
+	@echo "... drive_bot"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"
