@@ -37,6 +37,12 @@
       <geometry>
         <box size=".4 .2 .1"/>
       </geometry>
+      <material name = "green">
+          <ambient>0 0 0 1</ambient>
+          <diffuse>0 0 0 1</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 1 0 1</emissive>
+      </material>
     </visual>
 
     <collision name='back_caster_collision'>
@@ -83,15 +89,21 @@
     <collision name='collision'>
       <origin xyz="0 0 0" rpy=" 0 1.5707 1.5707"/> 
       <geometry>
-        <cylinder radius=".1" length=".05"/>
+        <cylinder radius=".15" length=".05"/>
       </geometry>
     </collision>
 
     <visual name='left_wheel_visual'>
       <origin xyz="0 0 0" rpy=" 0 1.5707 1.5707"/>
       <geometry>
-        <cylinder radius=".1" length=".05"/>
+        <cylinder radius=".15" length=".05"/>
       </geometry>
+      <material name = "blue"> <!-- Wheel material -->
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.1 0.1 0.2 1</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 1</emissive>
+      </material> <!-- End wheel material -->
     </visual>
     
   </link>
@@ -128,6 +140,12 @@
       <geometry>
         <cylinder radius=".1" length=".05"/>
       </geometry>
+      <material name = "blue"> <!-- Wheel material -->
+          <ambient>0.1 0.1 0.1 1</ambient>
+          <diffuse>0.1 0.1 0.2 1</diffuse>
+          <specular>0 0 0 0</specular>
+          <emissive>0 0 0 1</emissive>
+      </material> <!-- End wheel material -->
     </visual>
     
   </link>

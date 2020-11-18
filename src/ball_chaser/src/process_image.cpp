@@ -18,7 +18,6 @@ void drive_robot(float lin_x, float ang_z)
     // Check for failed service
     if (!client.call(srv))
         ROS_ERROR("Failed to call service DriveToTarget");
-
 }
 
 // This callback function continuously executes and reads the image data
