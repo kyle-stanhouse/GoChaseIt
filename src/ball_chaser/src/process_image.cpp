@@ -60,7 +60,8 @@ void process_image_callback(const sensor_msgs::Image img)
 	else if( (white_pixel_idx % img.step) >= fabs(img.step*2/3) ){
 
 		ROS_INFO_STREAM("Driving right");		
-		drive_robot(0.025,-0.1); //drive right
+		//drive_robot(0.025,-0.1); //drive right
+		drive_robot(10.0,-8.0); //drive right
 	} 
 	else{
 
