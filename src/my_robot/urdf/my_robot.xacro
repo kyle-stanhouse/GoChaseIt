@@ -28,20 +28,17 @@
     <collision name='collision'>
       <origin xyz="0 0 0" rpy=" 0 0 0"/> 
       <geometry>
-        <box size=".4 .2 .1"/>
+        <box size=".4 .3 .1"/>
       </geometry>
     </collision>
 
     <visual name='chassis_visual'>
       <origin xyz="0 0 0" rpy=" 0 0 0"/>
       <geometry>
-        <box size=".4 .2 .1"/>
+        <box size=".4 .3 .1"/>
       </geometry>
-      <material name = "green">
-          <ambient>0 0 0 1</ambient>
-          <diffuse>0 0 0 1</diffuse>
-          <specular>0 0 0 0</specular>
-          <emissive>0 1 0 1</emissive>
+      <material name = "blue">
+	<color rgba="0.0 0.0 0.8 1.0"/>
       </material>
     </visual>
 
@@ -98,18 +95,15 @@
       <geometry>
         <cylinder radius=".15" length=".05"/>
       </geometry>
-      <material name = "blue"> <!-- Wheel material -->
-          <ambient>0.1 0.1 0.1 1</ambient>
-          <diffuse>0.1 0.1 0.2 1</diffuse>
-          <specular>0 0 0 0</specular>
-          <emissive>0 0 0 1</emissive>
-      </material> <!-- End wheel material -->
+      <material name = "green">
+	<color rgba="0.0 0.8 0.0 1.0"/>
+      </material>
     </visual>
     
   </link>
   
   <joint type="continuous" name="left_wheel_hinge">
-    <origin xyz="0 0.125 0" rpy="0 0 0"/>
+    <origin xyz="0 0.175 0" rpy="0 0 0"/>
     <child link="left_wheel"/>
     <parent link="chassis"/>
     <axis xyz="0 1 0" rpy="0 0 0"/>
@@ -131,27 +125,24 @@
     <collision name='collision'>
       <origin xyz="0 0 0" rpy=" 0 1.5707 1.5707"/> 
       <geometry>
-        <cylinder radius=".1" length=".05"/>
+        <cylinder radius=".15" length=".05"/>
       </geometry>
     </collision>
 
     <visual name='right_wheel_visual'>
       <origin xyz="0 0 0" rpy=" 0 1.5707 1.5707"/>
       <geometry>
-        <cylinder radius=".1" length=".05"/>
+        <cylinder radius=".15" length=".05"/>
       </geometry>
-      <material name = "blue"> <!-- Wheel material -->
-          <ambient>0.1 0.1 0.1 1</ambient>
-          <diffuse>0.1 0.1 0.2 1</diffuse>
-          <specular>0 0 0 0</specular>
-          <emissive>0 0 0 1</emissive>
-      </material> <!-- End wheel material -->
+      <material name = "green">
+	<color rgba="0.0 0.8 0.0 1.0"/>>
+      </material>
     </visual>
     
   </link>
   
   <joint type="continuous" name="right_wheel_hinge">
-    <origin xyz="0 -0.125 0" rpy="0 0 0"/>
+    <origin xyz="0 -0.175 0" rpy="0 0 0"/>
     <child link="right_wheel"/>
     <parent link="chassis"/>
     <axis xyz="0 1 0" rpy="0 0 0"/>

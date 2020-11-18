@@ -9,7 +9,7 @@
       <leftJoint>left_wheel_hinge</leftJoint>
       <rightJoint>right_wheel_hinge</rightJoint>
       <wheelSeparation>0.4</wheelSeparation>
-      <wheelDiameter>0.2</wheelDiameter>
+      <wheelDiameter>0.3</wheelDiameter>
       <torque>10</torque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
@@ -24,6 +24,20 @@
       <publishTf>1</publishTf>
       <publishOdomTF>true</publishOdomTF>
     </plugin>
+  </gazebo>
+
+  <!-- robot color -->
+  <gazebo reference="left_wheel">
+    <material>Gazebo/Green</material>
+  </gazebo>
+  <gazebo reference="right_wheel">
+    <material>Gazebo/Green</material>
+  </gazebo>
+  <gazebo reference="chassis">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+  <gazebo reference="hokuyo">
+    <material>Gazebo/Red</material>
   </gazebo>
 
   <!-- camera -->
