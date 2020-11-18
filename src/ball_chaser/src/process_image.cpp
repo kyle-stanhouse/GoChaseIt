@@ -36,8 +36,6 @@ void process_image_callback(const sensor_msgs::Image img)
 
     for (int i = 0; i < img.height * img.step; i++) {
 
-        //ROS_INFO_STREAM("img.data[i]" << std::to_string(img.data[i]));
-
 	// find white pixel
         if (img.data[i] == white_pixel) {
 	    ROS_INFO_STREAM("Found white ball!");
@@ -46,70 +44,27 @@ void process_image_callback(const sensor_msgs::Image img)
 	    break;
 	}
     } //end for
-
-    //ROS_INFO_STREAM("reached end of for loop");
     
     if (found_white_ball == true){
-
-	
 
 	// Decide to drive robot left, forward, right, or stop
         if ( (white_pixel_idx % img.step) < fabs(img.step/3) ){
 
-int mod = (white_pixel_idx % img.step);
-int idx_1 = fabs(img.step/3);
-int idx_2 = fabs(img.step*2/3);
-
-ROS_INFO_STREAM( "white_pixel_idx " << std::to_string(white_pixel_idx) );
-ROS_INFO_STREAM( "(white_pixel_idx % img.step) " << std::to_string(mod) );
-ROS_INFO_STREAM( "fabs(img.step/3) " << std::to_string(idx_1) );
-ROS_INFO_STREAM( "fabs(img.step*2/3)" << std::to_string(idx_2) );
-ROS_INFO_STREAM( "width " << std::to_string(img.width) );
-ROS_INFO_STREAM( "step " << std::to_string(img.step) );
 		ROS_INFO_STREAM("Driving left");
 		drive_robot(0.025,0.1); //drive left
 	} 
 	else if( ( (white_pixel_idx % img.step) >= fabs(img.step/3) ) && ( white_pixel_idx % img.step < fabs(img.step * 2/3) ) ){
-		
-int mod = (white_pixel_idx % img.step);
-int idx_1 = fabs(img.step/3);
-int idx_2 = fabs(img.step*2/3);
-
-ROS_INFO_STREAM( "white_pixel_idx " << std::to_string(white_pixel_idx) );
-ROS_INFO_STREAM( "(white_pixel_idx % img.step) " << std::to_string(mod) );
-ROS_INFO_STREAM( "fabs(img.step/3) " << std::to_string(idx_1) );
-ROS_INFO_STREAM( "fabs(img.step*2/3)" << std::to_string(idx_2) );
-ROS_INFO_STREAM( "width " << std::to_string(img.width) );
-ROS_INFO_STREAM( "step " << std::to_string(img.step) );
 
 		ROS_INFO_STREAM("Driving forward");	    	
 		drive_robot(0.1,0.0); //drive forward
 	} 
 	else if( (white_pixel_idx % img.step) >= fabs(img.step*2/3) ){
-int mod = (white_pixel_idx % img.step);
-int idx_1 = fabs(img.step/3);
-int idx_2 = fabs(img.step*2/3);
 
-ROS_INFO_STREAM( "white_pixel_idx " << std::to_string(white_pixel_idx) );
-ROS_INFO_STREAM( "(white_pixel_idx % img.step) " << std::to_string(mod) );
-ROS_INFO_STREAM( "fabs(img.step/3) " << std::to_string(idx_1) );
-ROS_INFO_STREAM( "fabs(img.step*2/3)" << std::to_string(idx_2) );
-ROS_INFO_STREAM( "width " << std::to_string(img.width) );
-ROS_INFO_STREAM( "step " << std::to_string(img.step) );
 		ROS_INFO_STREAM("Driving right");		
 		drive_robot(0.025,-0.1); //drive right
 	} 
 	else{
-int mod = (white_pixel_idx % img.step);
-int idx_1 = fabs(img.step/3);
-int idx_2 = fabs(img.step*2/3);
 
-ROS_INFO_STREAM( "white_pixel_idx " << std::to_string(white_pixel_idx) );
-ROS_INFO_STREAM( "(white_pixel_idx % img.step) " << std::to_string(mod) );
-ROS_INFO_STREAM( "fabs(img.step/3) " << std::to_string(idx_1) );
-ROS_INFO_STREAM( "fabs(img.step*2/3)" << std::to_string(idx_2) );
-ROS_INFO_STREAM( "width " << std::to_string(img.width) );
-ROS_INFO_STREAM( "step " << std::to_string(img.step) );
 	     ROS_ERROR("Couldn't find drive direction");
 	     drive_robot(0.0,0.0); //stop robot 
 	}
@@ -119,11 +74,9 @@ ROS_INFO_STREAM( "step " << std::to_string(img.step) );
 
     } //end if
     else if (found_white_ball == false){
+
 	  ROS_INFO_STREAM("Couldn't find white ball!");
 	} 	
-
-    	//ROS_INFO_STREAM("Reached end of callback");
-		
 
 } // end process_image_callback
 
