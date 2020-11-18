@@ -50,18 +50,18 @@ void process_image_callback(const sensor_msgs::Image img)
         if ( (white_pixel_idx % img.step) < fabs(img.step/3) ){
 
 		ROS_INFO_STREAM("Driving left");
-		drive_robot(0.025,0.1); //drive left
+		drive_robot(0.025*3,0.1*3); //drive left
 	} 
 	else if( ( (white_pixel_idx % img.step) >= fabs(img.step/3) ) && ( white_pixel_idx % img.step < fabs(img.step * 2/3) ) ){
 
 		ROS_INFO_STREAM("Driving forward");	    	
-		drive_robot(0.1,0.0); //drive forward
+		drive_robot(0.025*3,0.0); //drive forward
 	} 
 	else if( (white_pixel_idx % img.step) >= fabs(img.step*2/3) ){
 
 		ROS_INFO_STREAM("Driving right");		
 		//drive_robot(0.025,-0.1); //drive right
-		drive_robot(6.0,-37.0); //drive right
+		drive_robot(0.025*3,-.1*3); //drive right
 	} 
 	else{
 
@@ -75,7 +75,8 @@ void process_image_callback(const sensor_msgs::Image img)
     } //end if
     else if (found_white_ball == false){
 
-	  ROS_INFO_STREAM("Couldn't find white ball!");
+	ROS_INFO_STREAM("Couldn't find white ball!");
+	drive_robot(0.0,0.0); //stop robot
 	} 	
 
 } // end process_image_callback
