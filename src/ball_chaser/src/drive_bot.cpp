@@ -28,7 +28,7 @@ bool handle_drive_request(ball_chaser::DriveToTarget::Request& req,
         motor_command.linear.x = req.linear_x;
         motor_command.angular.z = req.angular_z;
 
-        // Publish angles to drive the robot
+        // Publish velocities to drive the robot
         motor_command_publisher.publish(motor_command);
 
     	// Wait 3 seconds for arm to settle
