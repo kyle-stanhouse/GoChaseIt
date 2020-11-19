@@ -40,10 +40,10 @@
     <material>Gazebo/Red</material>
   </gazebo>
   <gazebo reference='front_caster_visual'>
-    <material>Gazebo/Red</material>
+    <material>Gazebo/Grey</material>
   </gazebo>
   <gazebo reference='back_caster_visual'>
-    <material>Gazebo/Red</material>
+    <material>Gazebo/Grey</material>
   </gazebo>
 
   <!-- camera -->
