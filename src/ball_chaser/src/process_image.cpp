@@ -26,23 +26,29 @@ void process_image_callback(const sensor_msgs::Image img)
 
     int white_pixel = 255;
     int white_pixel_idx;
-    bool found_white_ball = false;	 
+    bool found_white_ball = false;
+int multx = 20;
+
 
     // TODO: Loop through each pixel in the image and check if there's a bright white one
     // Then, identify if this pixel falls in the left, mid, or right side of the image
     // Depending on the white ball position, call the drive_bot function and pass velocities to it
     // Request a stop when there's no white ball seen by the camera
 
-    for (int i = 0; i < img.height * img.step; i++) {
+    for (int i = 0; i < img.height * img.step; i+=3) {
 
 	// find white pixel
-        if (img.data[i] == white_pixel) {
+        if ( (img.data[i] == white_pixel) && ( img.data[i+1] == white_pixel ) && ( img.data[i+2] == white_pixel ) ) {
+
 	    ROS_INFO_STREAM("Found white ball!");
 	    white_pixel_idx = i;
 	    found_white_ball = true;
-	    break;
 	}
+
+	if (found_white_ball == true){break;}
+
     } //end for
+
     
     if (found_white_ball == true){
 
@@ -50,18 +56,21 @@ void process_image_callback(const sensor_msgs::Image img)
         if ( (white_pixel_idx % img.step) < fabs(img.step/3) ){
 
 		ROS_INFO_STREAM("Driving left");
-		drive_robot(0.025*3,0.1*3); //drive left
+		//drive_robot(0.025*multx,0.1*multx); //drive left
+		drive_robot(0.0,0.2); //drive left
 	} 
 	else if( ( (white_pixel_idx % img.step) >= fabs(img.step/3) ) && ( white_pixel_idx % img.step < fabs(img.step * 2/3) ) ){
 
 		ROS_INFO_STREAM("Driving forward");	    	
-		drive_robot(0.025*3,0.0); //drive forward
+		//drive_robot(0.025*multx,0.0); //drive forward
+		drive_robot(6.0,0.0); //drive forward
 	} 
 	else if( (white_pixel_idx % img.step) >= fabs(img.step*2/3) ){
 
 		ROS_INFO_STREAM("Driving right");		
 		//drive_robot(0.025,-0.1); //drive right
-		drive_robot(0.025*3,-.1*3); //drive right
+		//drive_robot(0.025*multx,-.1*multx); //drive right
+		drive_robot(0.0,-0.2); //drive right
 	} 
 	else{
 
@@ -73,6 +82,7 @@ void process_image_callback(const sensor_msgs::Image img)
 	found_white_ball = false;
 
     } //end if
+
     else if (found_white_ball == false){
 
 	ROS_INFO_STREAM("Couldn't find white ball!");
