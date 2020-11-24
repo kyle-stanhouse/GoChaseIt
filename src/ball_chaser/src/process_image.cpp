@@ -63,7 +63,7 @@ int multx = 20;
 
 		ROS_INFO_STREAM("Driving forward");	    	
 		//drive_robot(0.025*multx,0.0); //drive forward
-		drive_robot(0.08,0.0); //drive forward
+		drive_robot(0.1,0.0); //drive forward
 	} 
 	else if( (white_pixel_idx % img.step) >= fabs(img.step*2/3) ){
 
