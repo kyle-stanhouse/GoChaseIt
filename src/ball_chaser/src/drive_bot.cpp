@@ -14,13 +14,6 @@ bool handle_drive_request(ball_chaser::DriveToTarget::Request& req,
 {
 	ROS_INFO("Drive to Target request received - linear x:%1.2f, angular z:%1.2f", (float)req.linear_x, (float)req.angular_z);
 
-	//std_msgs::Float64 linear_x, angular_z;
-
-   	// motor_command_publisher.publish(req);
-
-
-    // TODO: Delete the loop, move the code to the inside of the callback function and make the necessary changes to publish the requested velocities instead of constant values
-
         // Create a motor_command object of type geometry_msgs::Twist
         geometry_msgs::Twist motor_command;
 
