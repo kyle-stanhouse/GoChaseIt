@@ -8,12 +8,12 @@
 
   <joint name="robot_footprint_joint" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0" />
-    <parent link="robot_footprint"/>
+    <parent link="robot_footprint"/> 
     <child link="chassis" />
   </joint>
 
   <link name='chassis'>
-    <pose>0 0 0.1 0 0 0</pose>
+    <pose>0 0 0.0 0 0 0</pose>
 
     <inertial>
       <mass value="15.0"/>
@@ -43,9 +43,9 @@
     </visual>
 
     <collision name='back_caster_collision'>
-      <origin xyz="-0.15 0 -0.075" rpy=" 0 0 0"/>
+      <origin xyz="-0.15 0 -0.1" rpy=" 0 0 0"/>
       <geometry>
-        <sphere radius="0.075"/>
+        <sphere radius="0.099"/>
       </geometry>
       <surface>
         <friction>
@@ -60,9 +60,9 @@
     </collision>
 
     <visual name='back_caster_visual'>
-      <origin xyz="-0.15 0 -0.075" rpy=" 0 0 0"/>
+      <origin xyz="-0.15 0 -0.1" rpy=" 0 0 0"/>
       <geometry>
-        <sphere radius="0.075"/>
+        <sphere radius="0.1"/>
       </geometry>
       <material name = "grey">
 	<color rgba="0.2 0.2 0.2 1.0"/>
@@ -70,9 +70,9 @@
     </visual>
 
     <collision name='front_caster_collision'>
-      <origin xyz="0.15 0 -0.075" rpy=" 0 0 0"/>
+      <origin xyz="0.15 0 -0.1" rpy=" 0 0 0"/>
       <geometry>
-        <sphere radius="0.075"/>
+        <sphere radius="0.099"/>
       </geometry>
       <surface>
         <friction>
@@ -87,7 +87,7 @@
     </collision>
 
     <visual name='front_caster_visual'>
-      <origin xyz="0.15 0 -0.075" rpy=" 0 0 0"/>
+      <origin xyz="0.15 0 -0.1" rpy=" 0 0 0"/>
       <geometry>
         <sphere radius="0.075"/>
       </geometry>
@@ -112,14 +112,14 @@
     <collision name='collision'>
       <origin xyz="0 0 0" rpy=" 0 1.5707 1.5707"/> 
       <geometry>
-        <cylinder radius=".15" length=".05"/>
+        <cylinder radius=".2" length=".05"/>
       </geometry>
     </collision>
 
     <visual name='left_wheel_visual'>
       <origin xyz="0 0 0" rpy=" 0 1.5707 1.5707"/>
       <geometry>
-        <cylinder radius=".15" length=".05"/>
+        <cylinder radius=".2" length=".05"/>
       </geometry>
       <material name = "green">
 	<color rgba="0.0 0.8 0.0 1.0"/>
@@ -129,7 +129,7 @@
   </link>
   
   <joint type="continuous" name="left_wheel_hinge">
-    <origin xyz="0 0.175 0" rpy="0 0 0"/>
+    <origin xyz="0 0.18 0" rpy="0 0 0"/>
     <child link="left_wheel"/>
     <parent link="chassis"/>
     <axis xyz="0 1 0" rpy="0 0 0"/>
@@ -151,14 +151,14 @@
     <collision name='collision'>
       <origin xyz="0 0 0" rpy=" 0 1.5707 1.5707"/> 
       <geometry>
-        <cylinder radius=".15" length=".05"/>
+        <cylinder radius=".2" length=".05"/>
       </geometry>
     </collision>
 
     <visual name='right_wheel_visual'>
       <origin xyz="0 0 0" rpy=" 0 1.5707 1.5707"/>
       <geometry>
-        <cylinder radius=".15" length=".05"/>
+        <cylinder radius=".2" length=".05"/>
       </geometry>
       <material name = "green">
 	<color rgba="0.0 0.8 0.0 1.0"/>>
@@ -168,7 +168,7 @@
   </link>
   
   <joint type="continuous" name="right_wheel_hinge">
-    <origin xyz="0 -0.175 0" rpy="0 0 0"/>
+    <origin xyz="0 -0.18 0" rpy="0 0 0"/>
     <child link="right_wheel"/>
     <parent link="chassis"/>
     <axis xyz="0 1 0" rpy="0 0 0"/>
@@ -196,7 +196,7 @@
       </geometry>
     </collision>
 
-    <visual name='right_wheel_visual'>
+    <visual name='camera_visual'>
       <origin xyz="0 0 0" rpy=" 0 1.5707 1.5707"/>
       <geometry>
         <box size=".05 .05 .05"/>
@@ -237,7 +237,7 @@
   </link>
   
   <joint type="fixed" name="hokuyo_joint">
-    <origin xyz=".15 0 .1" rpy="0 0 0"/>
+    <origin xyz=".15 0 .05" rpy="0 0 0"/>
     <child link="hokuyo"/>
     <parent link="chassis"/>
     <axis xyz="0 1 0" />
